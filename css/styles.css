@@ -517,21 +517,21 @@ fill: #f4f4fd;
     height: 40px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
     background-color: transparent;
-}
-
-.subscribe-input::placeholder {
-    font-weight: 400;
     font-size: 12px;
     line-height: 2;
     letter-spacing: 0.04em;
+    padding-left: 16px;
+    color: #fff;
+}
+
+.subscribe-input::placeholder {
     color: #fff; 
-    padding: 8px 16px;
 }
 
 .subscribe-button {
     border-radius: 4px;
     padding: 8px 24px;
-    max-width: 165px;
+    min-width: 165px;
     height: 40px;
     background-color: #4d5ae5;
     justify-content: center;
@@ -571,7 +571,7 @@ fill: #f4f4fd;
     align-items: center;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-overlay.is-open {
@@ -584,6 +584,14 @@ fill: #f4f4fd;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px 0 rgba(0, 0, 0, 0.2);
     background-color: #FCFCFC;
     padding: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 408px;
+    min-height: 584px;
+    padding: 72px 24px 24px 24px;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close {
@@ -592,7 +600,7 @@ fill: #f4f4fd;
     border-radius: 50%;
     background-color: #e7e9fc;
     stroke-width: 1px;
-        stroke: rgba(0, 0, 0, 0.1);
+    stroke: rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.1);
     justify-items: end;
     margin-left: auto;
@@ -600,6 +608,10 @@ fill: #f4f4fd;
     justify-content: center;
     padding: 0;
     display: flex;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    cursor: pointer;
     transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -610,11 +622,10 @@ fill: #f4f4fd;
 }
 
 .modal-close-icon {
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-modal-text {
-    margin-top: 24px;
     margin-bottom: 16px;
     font-weight: 500;
     font-size: 16px;
@@ -650,11 +661,11 @@ fill: #f4f4fd;
     padding-left: 38px;
     background-color: transparent;
     outline: transparent;
-    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-input:focus, .form-textarea:focus {
-    border: 1px solid #4d5ae5;
+    border-color: #4D5AE5;
 }
 
 .form-modal-icon {
@@ -670,6 +681,10 @@ fill: #f4f4fd;
     fill: #4d5ae5;
 }
 
+.textarea-container {
+    margin-bottom: 16px;
+}
+
 .form-textarea {
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 4px;
@@ -678,20 +693,24 @@ fill: #f4f4fd;
     resize: none;
     outline: none;
     padding: 8px 16px;
-    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.form-textarea::placeholder {
-    font-weight: 400;
     font-size: 12px;
-    line-height: 1.16667;
+    line-height: 1.17;
     letter-spacing: 0.04em;
+    background-color: transparent;
     color: rgba(46, 47, 66, 0.4);
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-modal-container-checkbox {
-    margin-top: 16px;
     padding-bottom: 24px;
+}
+
+.form-label-checkbox {
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: #8e8f99;
+    line-height: 1.33;
 }
 
 .checkbox-span {
@@ -713,15 +732,6 @@ fill: #f4f4fd;
     fill: #f4f4fd;
 }
 
-.form-label-checkbox {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.17;
-    letter-spacing: 0.04em;
-    color: #8e8f99;
-    line-height: 1.33;
-}
-
 .link-checkbox {
     text-decoration: underline;
     text-decoration-skip-ink: none;
@@ -730,6 +740,7 @@ fill: #f4f4fd;
 
 /* Button modal */
 .modal-overlay-button {
+    font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
